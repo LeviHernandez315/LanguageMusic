@@ -1,0 +1,92 @@
+-- Tabla Usuario
+CREATE TABLE Usuario (
+    idUsuario INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255),
+    apellido VARCHAR(255),
+    email VARCHAR(255),
+    password VARCHAR(255)
+);
+
+-- Tabla TipoMembresia
+CREATE TABLE TipoMembresia (
+    idTipoMembresia INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255),
+    descripcion TEXT
+);
+
+-- Tabla Membresia
+CREATE TABLE Membresia (
+    idMembresia INT AUTO_INCREMENT PRIMARY KEY,
+    idUsuario INT,
+    idTipoMembresia INT,
+    Activa BOOLEAN,
+    FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario),
+    FOREIGN KEY (idTipoMembresia) REFERENCES TipoMembresia(idTipoMembresia)
+);
+
+-- Tabla Recibo
+CREATE TABLE Recibo (
+    idRecibo INT AUTO_INCREMENT PRIMARY KEY,
+    idUsuario INT,
+    fechaPago DATE,
+    idMembresia INT,
+    FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario),
+    FOREIGN KEY (idMembresia) REFERENCES Membresia(idMembresia)
+);
+
+-- Tabla Tarjetas
+CREATE TABLE Tarjetas (
+    idTarjeta INT AUTO_INCREMENT PRIMARY KEY,
+    idUsuario INT,
+    NumTarjeta VARCHAR(16),
+    CVV VARCHAR(3),
+    FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)
+);
+
+-- Tabla Artistas
+CREATE TABLE Artistas (
+    idArtista INT AUTO_INCREMENT PRIMARY KEY,
+    NombreArtista VARCHAR(255)
+);
+
+-- Tabla Albunes
+CREATE TABLE Albunes (
+    idAlbum INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255),
+    año INT,
+    idArtista INT,
+    FOREIGN KEY (idArtista) REFERENCES Artistas(idArtista)
+);
+
+-- Tabla Playlist
+CREATE TABLE Playlist (
+    idPlaylist INT AUTO_INCREMENT PRIMARY KEY,
+    idUsuario INT,
+    NombrePlaylist VARCHAR(255),
+    Descripcion TEXT,
+    FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)
+);
+
+-- Tabla Canciones
+CREATE TABLE Canciones (
+    idCancion INT AUTO_INCREMENT PRIMARY KEY,
+    NombreCancion VARCHAR(255),
+    Duracion TIME,
+    URL VARCHAR(255),
+    idAlbum INT,
+    idArtista INT,
+    Reproducciones INT,
+    FOREIGN KEY (idAlbum) REFERENCES Albunes(idAlbum),
+    FOREIGN KEY (idArtista) REFERENCES Artistas(idArtista)
+);
+
+-- Tabla PlayListCancion
+CREATE TABLE PlayListCancion (
+    idPlaylistCancion INT AUTO_INCREMENT PRIMARY KEY,
+    idPlaylist INT,
+    idCancion INT,
+    FOREIGN KEY (idPlaylist) REFERENCES Playlist(idPlaylist),
+    FOREIGN KEY (idCancion) REFERENCES Canciones(idCancion)
+);
+
+
