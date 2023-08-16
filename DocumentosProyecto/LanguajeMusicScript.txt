@@ -1,3 +1,12 @@
+-- Tabla Usuario
+CREATE TABLE Usuario (
+    idUsuario INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255),
+    apellido VARCHAR(255),
+    email VARCHAR(255),
+    password VARCHAR(255)
+);
+
 -- Tabla TipoMembresia
 CREATE TABLE TipoMembresia (
     idTipoMembresia INT AUTO_INCREMENT PRIMARY KEY,
@@ -8,20 +17,11 @@ CREATE TABLE TipoMembresia (
 -- Tabla Membresia
 CREATE TABLE Membresia (
     idMembresia INT AUTO_INCREMENT PRIMARY KEY,
+    idUsuario INT,
     idTipoMembresia INT,
     Activa BOOLEAN,
+    FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario),
     FOREIGN KEY (idTipoMembresia) REFERENCES TipoMembresia(idTipoMembresia)
-);
-
--- Tabla Usuario
-CREATE TABLE Usuario (
-    idUsuario INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(255),
-    apellido VARCHAR(255),
-    email VARCHAR(255),
-    password VARCHAR(255),
-    idMembresia INT,
-    FOREIGN KEY (idMembresia) REFERENCES Membresia(idMembresia)
 );
 
 -- Tabla Recibo
@@ -49,8 +49,8 @@ CREATE TABLE Artistas (
     NombreArtista VARCHAR(255)
 );
 
--- Tabla Albunes
-CREATE TABLE Albunes (
+-- Tabla Albumes
+CREATE TABLE Albumes (
     idAlbum INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255),
     año INT,
@@ -76,7 +76,7 @@ CREATE TABLE Canciones (
     idAlbum INT,
     idArtista INT,
     Reproducciones INT,
-    FOREIGN KEY (idAlbum) REFERENCES Albunes(idAlbum),
+    FOREIGN KEY (idAlbum) REFERENCES Albumes(idAlbum),
     FOREIGN KEY (idArtista) REFERENCES Artistas(idArtista)
 );
 
@@ -88,5 +88,3 @@ CREATE TABLE PlayListCancion (
     FOREIGN KEY (idPlaylist) REFERENCES Playlist(idPlaylist),
     FOREIGN KEY (idCancion) REFERENCES Canciones(idCancion)
 );
-
-
