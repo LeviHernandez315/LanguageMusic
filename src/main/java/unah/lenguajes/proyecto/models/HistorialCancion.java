@@ -18,11 +18,11 @@ public class HistorialCancion {
     @Column(name = "idhistorial")
     private int idHistorial;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional=false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idusuario")
     private Usuario usuario;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional=false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idcancion")
     private Cancion cancion;
 

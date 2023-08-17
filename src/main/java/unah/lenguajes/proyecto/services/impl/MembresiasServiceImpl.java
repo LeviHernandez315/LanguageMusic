@@ -3,12 +3,14 @@ package unah.lenguajes.proyecto.services.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import unah.lenguajes.proyecto.models.Membresia;
 import unah.lenguajes.proyecto.models.Usuario;
 import unah.lenguajes.proyecto.repositories.MembresiaRepository;
 import unah.lenguajes.proyecto.services.MembresiaService;
 
+@Service
 public class MembresiasServiceImpl implements MembresiaService{
 
 	@Autowired

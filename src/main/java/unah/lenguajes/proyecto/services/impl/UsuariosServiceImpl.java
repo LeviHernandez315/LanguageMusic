@@ -3,11 +3,13 @@ package unah.lenguajes.proyecto.services.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import unah.lenguajes.proyecto.models.Usuario;
 import unah.lenguajes.proyecto.repositories.UsuariosRepository;
 import unah.lenguajes.proyecto.services.UsuariosService;
 
+@Service
 public class UsuariosServiceImpl implements UsuariosService{
 	
 	@Autowired

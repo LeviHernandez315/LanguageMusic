@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import unah.lenguajes.proyecto.models.Cancion;
 import unah.lenguajes.proyecto.models.HistorialCancion;
@@ -11,6 +12,7 @@ import unah.lenguajes.proyecto.repositories.HistorialCancionRepository;
 import unah.lenguajes.proyecto.repositories.UsuariosRepository;
 import unah.lenguajes.proyecto.services.HistorialCancionService;
 
+@Service
 public class HistorialCancionServiceImpl  implements HistorialCancionService{
 
 	@Autowired

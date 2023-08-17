@@ -1,11 +1,13 @@
 package unah.lenguajes.proyecto.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import unah.lenguajes.proyecto.models.Tarjeta;
 import unah.lenguajes.proyecto.repositories.TarjetasRepositoy;
 import unah.lenguajes.proyecto.services.TarjetasService;
 
+@Service
 public class TarjetasServiceImpl implements TarjetasService{
 
 	@Autowired

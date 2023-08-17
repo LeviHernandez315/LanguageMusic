@@ -3,12 +3,14 @@ package unah.lenguajes.proyecto.services.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import unah.lenguajes.proyecto.models.Album;
 import unah.lenguajes.proyecto.models.Cancion;
 import unah.lenguajes.proyecto.repositories.AlbumesRepository;
 import unah.lenguajes.proyecto.services.AlbumesService;
 
+@Service
 public class AlbumesServiceImpl implements AlbumesService {
 
     @Autowired

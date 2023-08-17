@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 
 import javax.persistence.Table;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -35,9 +35,11 @@ public class Artista {
 	private String nombreArtista;
 	
 	@OneToMany(mappedBy="artista")
+	@JsonIgnore
 	private List<Album> album;
 	
 	@OneToMany(mappedBy = "artista")
+	@JsonIgnore
 	private List<Cancion> cancion;
 	
 
