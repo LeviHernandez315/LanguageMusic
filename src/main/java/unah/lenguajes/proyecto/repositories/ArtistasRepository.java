@@ -1,5 +1,9 @@
 package unah.lenguajes.proyecto.repositories;
 
-public interface ArtistasRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import unah.lenguajes.proyecto.models.Artista;
+
+public interface ArtistasRepository extends CrudRepository<Artista, Integer>{
 
 }

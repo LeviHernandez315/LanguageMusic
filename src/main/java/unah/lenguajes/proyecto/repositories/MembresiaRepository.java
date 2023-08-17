@@ -1,5 +1,9 @@
 package unah.lenguajes.proyecto.repositories;
 
-public interface MembresiaRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import unah.lenguajes.proyecto.models.Membresia;
+
+public interface MembresiaRepository extends CrudRepository<Membresia, Integer>{
 
 }

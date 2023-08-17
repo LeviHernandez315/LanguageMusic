@@ -20,3 +20,9 @@ Pagina prrincipal:
 
 *Al dar reproducir playlist devolver las rutas de las canciones.
 
+
+Pagina login
+Carga:
+*Servicio para obtener los tipos de membresia, solo el nombre
+Validar:
+*Servicio para validar que devuelva un boolean
