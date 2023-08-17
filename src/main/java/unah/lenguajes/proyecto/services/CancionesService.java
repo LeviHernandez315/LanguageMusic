@@ -21,5 +21,6 @@ public interface CancionesService {
 	
 	public boolean esPosibleReproducir(int idIUsuario, int idCancion);
 	
-	public HistorialCancion guardarEnHistorial(int idCancion);
+
+	public HistorialCancion guardarEnHistorial(int idCancion, int idUsuario);
 }

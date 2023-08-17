@@ -30,9 +30,9 @@ public class HistorialCancion {
     
     
     
-	public HistorialCancion(int idHistorial, Usuario usuario, Cancion cancion) {
+	public HistorialCancion( Usuario usuario, Cancion cancion) {
 		super();
-		this.idHistorial = idHistorial;
+		
 		this.usuario = usuario;
 		this.cancion = cancion;
 	}
