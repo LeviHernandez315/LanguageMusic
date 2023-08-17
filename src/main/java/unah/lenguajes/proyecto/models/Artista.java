@@ -64,5 +64,10 @@ public class Artista {
 	public void setAlbum(List<Album> album) {
 		this.album = album;
 	}
+
+	public List<Cancion> getCanciones() {
+		// TODO Auto-generated method stub
+		return this.cancion;
+	}
 	
 }
