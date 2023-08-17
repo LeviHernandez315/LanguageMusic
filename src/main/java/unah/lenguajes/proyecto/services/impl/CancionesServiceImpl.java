@@ -7,7 +7,11 @@ import org.springframework.stereotype.Service;
 
 import unah.lenguajes.proyecto.models.Cancion;
 import unah.lenguajes.proyecto.models.HistorialCancion;
+import unah.lenguajes.proyecto.models.Membresia;
+import unah.lenguajes.proyecto.models.TipoMembresia;
+import unah.lenguajes.proyecto.models.Usuario;
 import unah.lenguajes.proyecto.repositories.CancionesRepository;
+import unah.lenguajes.proyecto.repositories.HistorialCancionRepository;
 import unah.lenguajes.proyecto.repositories.UsuariosRepository;
 import unah.lenguajes.proyecto.services.CancionesService;
 
@@ -19,6 +23,9 @@ public class CancionesServiceImpl implements CancionesService {
     
     @Autowired
     private UsuariosRepository repoUsuario;
+    
+    @Autowired
+    private HistorialCancionRepository hcr;
 
     @Override
     public boolean guardarCancion(Cancion cancion) {
@@ -69,6 +76,20 @@ public class CancionesServiceImpl implements CancionesService {
         // Implementa la lógica para verificar si es posible reproducir la canción
         // Puedes verificar si el usuario tiene una membresía válida, si la canción es gratuita, etc.
     	if(repoUsuario.existsById(idUsuario) && repoCancion.existsById(idCancion)) {
+    		Usuario user = repoUsuario.findById(idUsuario).get();
+    		Cancion cancion = repoCancion.findById(idCancion).get();
+    		
+    		List<Membresia> membresias = user.getMembresias();
+    		int i = membresias.size()-1;
+    		
+    		TipoMembresia userTipoMembresia = membresias.get(i).getTipoMembresia();
+    		TipoMembresia cancionTipoMembresia = cancion.getTipoMembresia();
+    		
+    		if(userTipoMembresia.getPrecio()>=cancionTipoMembresia.getPrecio()) {
+    			return true;
+    		}
+    		
+    		return false;
     		
     	}
     	
@@ -76,9 +97,18 @@ public class CancionesServiceImpl implements CancionesService {
     }
 
     @Override
-    public HistorialCancion guardarEnHistorial(int idCancion) {
+    public HistorialCancion guardarEnHistorial(int idCancion, int idUsuario) {
         // Implementa la lógica para guardar la canción en el historial del usuario
         // Puedes crear una instancia de HistorialCancion y guardarla en la base de datos
-        return null;
+    	HistorialCancion hc = null;
+    	
+    	if(repoUsuario.existsById(idUsuario) && repoCancion.existsById(idCancion)) {
+    		hc = new HistorialCancion(repoUsuario.findById(idUsuario).get(), repoCancion.findById(idCancion).get());
+    		hcr.save(hc);
+    		
+    	}
+    	
+    	
+        return hc;
     }
 }

@@ -133,6 +133,11 @@ public class Cancion {
 	public void setReproducciones(int reproducciones) {
 		this.reproducciones = reproducciones;
 	}
+
+	public TipoMembresia getTipoMembresia() {
+		// TODO Auto-generated method stub
+		return this.tipoMembresia;
+	}
     
     
 }

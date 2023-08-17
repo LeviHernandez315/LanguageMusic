@@ -9,7 +9,7 @@ public interface HistorialCancionService {
 
 	public boolean crearHistorial(HistorialCancion hc);
 	
-	public boolean mostrarHistorialPorUsuario(int idUsuario);
+	public List<Cancion> mostrarHistorialPorUsuario(int idUsuario);
 	
 	public List<Cancion> ultimasDiez(int idUsuario);
 	
