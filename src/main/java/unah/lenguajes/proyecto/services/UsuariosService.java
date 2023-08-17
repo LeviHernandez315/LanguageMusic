@@ -1,5 +1,7 @@
 package unah.lenguajes.proyecto.services;
 
+import java.util.List;
+
 import unah.lenguajes.proyecto.models.Usuario;
 
 public interface UsuariosService {
@@ -10,10 +12,10 @@ public interface UsuariosService {
 	
 	public boolean actualizarUsuario(Usuario usuario);
 	
-	public boolean eliminarUsuario(Usuario usuario);
+	public boolean eliminarUsuario(int id);
 	
-	public boolean buscarUsuarioId(Usuario usuario);
+	public Usuario buscarUsuarioId(int id);
 	
-	public boolean obtenerTodosUsuarios(Usuario usuario);
+	public List<Usuario> obtenerTodosUsuarios();
 		
 }
