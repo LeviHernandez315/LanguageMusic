@@ -22,9 +22,9 @@ public class UsuariosServiceImpl implements UsuariosService{
 	@Override
 	public boolean validarCredenciales(String email, String password) {
 		// TODO Auto-generated method stub
-		if(usrepository.findAll() == ) {
+		//if(usrepository.findAll() == ) {
 			
-		}
+		//}
 		return false;
 	}
 
