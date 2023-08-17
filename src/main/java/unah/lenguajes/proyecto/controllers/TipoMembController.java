@@ -26,6 +26,15 @@ public class TipoMembController {
 	//@GetMapping("/eliminar/{idCancion}")
 	//@PathVariable(name="idCancion")
 	
+	public boolean actualizarTipoMembresia(TipoMembresia tpmembresia) {
+		return false;
+	}
+	
+	@GetMapping("/obtener/{id}")
+	public TipoMembresia obtenertipoMembresia(@PathVariable(name="id") int id) {
+		return tipoimp.obtenertipoMembresia(id);
+	}
+	
 	@GetMapping("/obtener")
 	public List<TipoMembresia> obtener(){
 		return tipoimp.obtenerTodasMembresias();
