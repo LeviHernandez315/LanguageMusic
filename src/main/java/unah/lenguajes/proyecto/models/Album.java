@@ -1,5 +1,8 @@
 package unah.lenguajes.proyecto.models;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -36,6 +40,9 @@ public class Album {
 	@Column(name="anio")
 	private int anio;
 	
+	
+	@OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
+    private List<Cancion> canciones;
 	
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY, optional=false)
@@ -73,6 +80,11 @@ public class Album {
 
 	public void setArtista(Artista artista) {
 		this.artista = artista;
+	}
+
+	public List<Cancion> getCanciones() {
+		// TODO Auto-generated method stub
+		return this.canciones;
 	}
 	
 	
