@@ -28,11 +28,12 @@ public class UsuarioController {
 	//@GetMapping("/eliminar/{idCancion}")
 	//@PathVariable(name="idCancion")
 	
-	public boolean validarCredenciales(@PathVariable(name="email") String email, @PathVariable(name="password") String password) {
+	@GetMapping("/validar/{email}/{password}")
+	public boolean validarCredenciales(@PathVariable(name="email") String email, @PathVariable(name="password") String password) 	{
 		return usServImpl.validarCredenciales(email, password);
 	}
 	
-	@PostMapping("/guardar")
+	@PostMapping("/actualizar")
 	public boolean actualizarUsuario(@RequestBody Usuario usuario) {
 		return usServImpl.actualizarUsuario(usuario);
 	}
@@ -42,20 +43,16 @@ public class UsuarioController {
 		return usServImpl.eliminarUsuario(id);
 	}
 	
-	@GetMapping("/eliminar/{idCancion}")
+	@GetMapping("/buscar/{idCancion}")
 	public Usuario buscarUsuarioId(int id) {
 		return usServImpl.buscarUsuarioId(id);
 	}
 	
-	@GetMapping("/eliminar/{idCancion}")
+	@GetMapping("/obtener")
 	public List<Usuario> obtenerTodosUsuarios() {
 		return usServImpl.obtenerTodosUsuarios();
 	}
 	
-	@GetMapping("/eliminar/{idCancion}")
-	public boolean eliminarUsuario(Usuario usuario) {
-		return usServImpl.eliminarUsuario(usuario);
-	}
 	
 	
 }
