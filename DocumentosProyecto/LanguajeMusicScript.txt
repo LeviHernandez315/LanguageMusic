@@ -79,6 +79,8 @@ CREATE TABLE Canciones (
     idAlbum INT,
     idArtista INT,
     Reproducciones INT,
+    idTipoMembresia INT,
+    FOREIGN KEY (idTipoMembresia) REFERENCES TipoMembresia(idTipoMembresia),
     FOREIGN KEY (idAlbum) REFERENCES Albumes(idAlbum),
     FOREIGN KEY (idArtista) REFERENCES Artistas(idArtista)
 );
