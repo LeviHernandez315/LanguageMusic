@@ -44,7 +44,7 @@ public class ArtistasServiceImpl implements ArtistasService {
 
     @Override
     public List<Artista> buscarArtistaPorNombre(String str) {
-        return artistaRepo.findByNombreContainingIgnoreCase(str);
+        return artistaRepo.findBynombreArtistaContainingIgnoreCase(str);
     }
 
     @Override

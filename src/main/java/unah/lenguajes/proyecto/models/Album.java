@@ -44,11 +44,24 @@ public class Album {
 	@OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
     private List<Cancion> canciones;
 	
-	@JsonIgnore
-	@ManyToOne(fetch = FetchType.LAZY, optional=false)
-	@JoinColumn(name="idartista", referencedColumnName="idartista", nullable =true)
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="idartista", referencedColumnName="idartista")
 	private Artista artista;
 
+	
+	public Album(int idAlbum, String nombre, int anio, List<Cancion> canciones) {
+		super();
+		this.idAlbum = idAlbum;
+		this.nombre = nombre;
+		this.anio = anio;
+		this.canciones = canciones;
+		
+	}
+	
+	public Album() {}
+
+	
 	public int getIdAlbum() {
 		return idAlbum;
 	}
@@ -85,6 +98,11 @@ public class Album {
 	public List<Cancion> getCanciones() {
 		// TODO Auto-generated method stub
 		return this.canciones;
+	}
+
+	
+	public void setCanciones(List<Cancion> canciones) {
+		this.canciones = canciones;
 	}
 	
 	

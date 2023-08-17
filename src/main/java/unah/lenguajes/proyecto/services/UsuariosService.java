@@ -17,5 +17,7 @@ public interface UsuariosService {
 	public Usuario buscarUsuarioId(int id);
 	
 	public List<Usuario> obtenerTodosUsuarios();
+
+	boolean eliminarUsuario(Usuario usuario);
 		
 }

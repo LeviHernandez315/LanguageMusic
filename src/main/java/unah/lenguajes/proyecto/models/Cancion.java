@@ -39,16 +39,16 @@ public class Cancion {
     private int duracion;
     private String url;
     
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idtipomembresia", referencedColumnName ="idtipomembresia")
     private TipoMembresia tipoMembresia;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional=false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idalbum", referencedColumnName = "idalbum")
     @JsonIgnore
     private Album album;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional=false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idartista", referencedColumnName = "idartista")
     @JsonIgnore
     private Artista artista;

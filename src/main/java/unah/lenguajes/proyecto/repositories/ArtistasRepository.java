@@ -8,6 +8,6 @@ import unah.lenguajes.proyecto.models.Artista;
 
 public interface ArtistasRepository extends CrudRepository<Artista, Integer>{
 
-	List<Artista> findByNombreContainingIgnoreCase(String str);
+	List<Artista> findBynombreArtistaContainingIgnoreCase(String str);
 
 }
