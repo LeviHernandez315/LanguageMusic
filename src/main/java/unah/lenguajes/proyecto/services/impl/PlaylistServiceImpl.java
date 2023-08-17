@@ -4,12 +4,14 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import unah.lenguajes.proyecto.models.Cancion;
 import unah.lenguajes.proyecto.models.Playlist;
 import unah.lenguajes.proyecto.repositories.PlaylistRepository;
 import unah.lenguajes.proyecto.services.PlaylistService;
 
+@Service
 public class PlaylistServiceImpl implements PlaylistService{
 
 	@Autowired

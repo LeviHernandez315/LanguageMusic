@@ -1,11 +1,13 @@
 package unah.lenguajes.proyecto.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import unah.lenguajes.proyecto.models.Recibo;
 import unah.lenguajes.proyecto.repositories.RecibosRepository;
 import unah.lenguajes.proyecto.services.RecibosService;
 
+@Service
 public class RecibosServiceImpl implements RecibosService{
 
 	@Autowired

@@ -1,5 +1,8 @@
 package unah.lenguajes.proyecto.services.impl;
 
-public class PlaylistCancionServiceImpl {
+import org.springframework.stereotype.Service;
 
+@Service
+public class PlaylistCancionServiceImpl {
+	
 }
