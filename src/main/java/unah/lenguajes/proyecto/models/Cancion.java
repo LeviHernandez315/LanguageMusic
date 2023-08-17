@@ -39,7 +39,8 @@ public class Cancion {
     private int duracion;
     private String url;
     
-    @OneToMany(mappedBy = "canciones")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "idtipomembresia", referencedColumnName ="idtipomembresia")
     private TipoMembresia tipoMembresia;
 
     @ManyToOne(fetch = FetchType.LAZY, optional=false)

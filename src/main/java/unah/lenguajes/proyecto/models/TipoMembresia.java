@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -40,7 +41,7 @@ public class TipoMembresia {
     @OneToOne(mappedBy = "tipoMembresia")
     private Membresia membresia;
     
-    @ManyToOne(fetch = FetchType.LAZY, optional=false)
+    @OneToMany(mappedBy = "tipoMembresia", fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Cancion> canciones;
     
