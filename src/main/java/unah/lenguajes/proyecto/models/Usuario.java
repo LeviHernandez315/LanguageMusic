@@ -52,6 +52,9 @@ public class Usuario {
     @JsonIgnore
     public Tarjeta tarjeta;
     
+    @OneToMany(mappedBy = "usuario")
+    private List<HistorialCancion> historialCanciones;
+    
     
     
     // Constructor, getters y setters
