@@ -22,9 +22,13 @@ public class UsuariosServiceImpl implements UsuariosService{
 	@Override
 	public boolean validarCredenciales(String email, String password) {
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
 		//if(usrepository.findAll() == ) {
 			
 		//}
+=======
+		
+>>>>>>> b6ccaa28878accf9dfa272d3af3da40473914b5b
 		return false;
 	}
 
@@ -54,6 +58,11 @@ public class UsuariosServiceImpl implements UsuariosService{
 	public List<Usuario> obtenerTodosUsuarios() {
 		// TODO Auto-generated method stub
 		return (List<Usuario>) usrepository.findAll();
+	}
+
+	public boolean eliminarUsuario(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

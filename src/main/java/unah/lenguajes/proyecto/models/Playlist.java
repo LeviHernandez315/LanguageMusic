@@ -54,6 +54,14 @@ public class Playlist {
 
     
     
+	public List<Cancion> getCanciones() {
+		return canciones;
+	}
+
+	public void setCanciones(List<Cancion> canciones) {
+		this.canciones = canciones;
+	}
+
 	public Playlist(int idPlaylist, String nombrePlaylist, String descripcion) {
 		super();
 		this.idPlaylist = idPlaylist;
