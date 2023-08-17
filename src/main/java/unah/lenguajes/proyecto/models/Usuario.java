@@ -35,6 +35,9 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario")
     private List<Recibo> recibos;
     
+    @OneToMany(mappedBy = "usuario")
+    private List<Playlist> playlists;
+    
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idtarjeta", referencedColumnName = "idtarjeta")
     public Tarjeta tarjeta;
@@ -117,5 +120,9 @@ public class Usuario {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    public void addPlaylist(Playlist pl) {
+    	this.playlists.add(pl);
     }
 }
