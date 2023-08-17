@@ -1,0 +1,22 @@
+Microservicion:
+Pagina prrincipal:
+* Aparecen las 10 caciones mas escuchadas
+	Ocupa servicio que devuelva las canciones top 10 para la pantalla principal
+	
+
+*Panel izquierdo:
+	*Parte 1:
+		-Se necesita que que se devuelvan las playlist del usuario y una favoritos por defecto:
+			->Devolver las canciones de esa playlist
+	*parte 2:
+		-Ultimas 10 canciones reproducidas
+			->Devolver las ultimas 10 canciones reproducidas por el usuario, Usar Tabla "HistorialCancion"
+
+*Barra Busqueda:
+	-Buscar por nombre canciones y artistas.
+
+*Al dar play a una cancion, 
+	-mostrar la ruta de la cancion.
+
+*Al dar reproducir playlist devolver las rutas de las canciones.
+
