@@ -1,5 +1,9 @@
 package unah.lenguajes.proyecto.repositories;
 
-public interface HistorialCancionRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import unah.lenguajes.proyecto.models.HistorialCancion;
+
+public interface HistorialCancionRepository extends CrudRepository<HistorialCancion, Integer>{
 
 }
