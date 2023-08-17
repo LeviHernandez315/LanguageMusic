@@ -8,15 +8,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import unah.lenguajes.proyecto.models.Tarjeta;
+import unah.lenguajes.proyecto.services.impl.TarjetasServiceImpl;
+
 @RestController
 @RequestMapping("/api/tajeta")
 public class TarjetaController {
 	
-	//@Autowired
-	//
-	//@PostMapping("/guardar")
-	//@RequestBody
-	//
-	//@GetMapping("/eliminar/{idCancion}")
-	//@PathVariable(name="idCancion")
+	@Autowired
+	private TarjetasServiceImpl tajServImpl;
+	
+	@PostMapping("/guardar")
+	public boolean guardarTarjeta(@RequestBody Tarjeta tarjeta) {
+		return tajServImpl.guardarTarjeta(tarjeta);
+	}
+	
+	@GetMapping("/mostrar/{id}")
+	public Tarjeta mostrarTarjetaid(@PathVariable(name="id") int id) {
+		return tajServImpl.mostrarTarjetaid(id);
+	}
+	
 }

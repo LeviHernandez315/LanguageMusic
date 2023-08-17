@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import unah.lenguajes.proyecto.models.Recibo;
 import unah.lenguajes.proyecto.services.impl.RecibosServiceImpl;
 
 @RestController
-@RequestMapping("/api/canciones")
+@RequestMapping("/api/recibo")
 public class ReciboController {
 	
 	@Autowired
@@ -22,4 +23,16 @@ public class ReciboController {
 	//
 	//@GetMapping("/eliminar/{idCancion}")
 	//@PathVariable(name="idCancion")
+	
+	@PostMapping("/guardar")
+	public boolean guardarRecibo(@RequestBody Recibo recibo) {
+		return recServImpl.guardarRecibo(recibo);
+	}
+	
+	@GetMapping("/obtener/{id}")
+	public Recibo obtnerreciboId(@PathVariable(name="id") int id) {
+		return recServImpl.obtnerreciboId(id);
+	}
+	
+	
 }
