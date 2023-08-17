@@ -2,6 +2,7 @@ package unah.lenguajes.proyecto.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,17 +12,26 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.Date;
 
 @Entity
-@Table(name="recibos")
+@Table(name="recibo")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Recibo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idrecibo")
     private int idRecibo;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idusuario", referencedColumnName = "idusuario", nullable = true)
     @JsonIgnore
     private Usuario usuario;
@@ -29,7 +39,7 @@ public class Recibo {
     @Column(name="frchapago")
     private Date fechaPago;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "idmembresia", referencedColumnName = "idmembresia", nullable = true)
     private Membresia membresia;
 

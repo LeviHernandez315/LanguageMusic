@@ -2,12 +2,19 @@ package unah.lenguajes.proyecto.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -16,14 +23,19 @@ import javax.persistence.ManyToMany;
 import java.util.List;
 
 @Entity
+@Table(name = "playlist")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Playlist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idplaylist")
     private int idPlaylist;
 
-    @ManyToOne
-    @JoinColumn(name = "idusuario", referencedColumnName = "idususario")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idusuario", referencedColumnName = "idusuario")
     @JsonIgnore
     private Usuario usuario;
 
