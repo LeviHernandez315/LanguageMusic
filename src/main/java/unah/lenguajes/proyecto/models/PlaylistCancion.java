@@ -34,6 +34,7 @@ public class PlaylistCancion {
     @JoinColumn(name = "idcancion", referencedColumnName = "idcancion")
     private Cancion cancion;
 
+    
 	public PlaylistCancion(int idPlaylistCancion, Playlist playlist, Cancion cancion) {
 		super();
 		this.idPlaylistCancion = idPlaylistCancion;

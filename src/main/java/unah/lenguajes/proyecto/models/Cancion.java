@@ -34,9 +34,13 @@ public class Cancion {
     @Column(name="idcancion")
     private int idCancion;
 
+    @Column(name = "nombrecancion")
     private String nombreCancion;
     private int duracion;
     private String url;
+    
+    @OneToMany(mappedBy = "canciones")
+    private TipoMembresia tipoMembresia;
 
     @ManyToOne(fetch = FetchType.LAZY, optional=false)
     @JoinColumn(name = "idalbum", referencedColumnName = "idalbum")

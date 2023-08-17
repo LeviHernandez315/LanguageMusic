@@ -1,11 +1,15 @@
 package unah.lenguajes.proyecto.models;
 
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -31,11 +35,14 @@ public class TipoMembresia {
 
     private String nombre;
     private String descripcion;
+    private float precio;
 
     @OneToOne(mappedBy = "tipoMembresia")
-    @JsonIgnore
     private Membresia membresia;
     
+    @ManyToOne(fetch = FetchType.LAZY, optional=false)
+    @JsonIgnore
+    private List<Cancion> canciones;
     
     // Constructor, getters y setters
 
@@ -72,4 +79,12 @@ public class TipoMembresia {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+	public float getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(float precio) {
+		this.precio = precio;
+	}
 }
