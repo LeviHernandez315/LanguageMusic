@@ -22,14 +22,16 @@ public class UsuariosServiceImpl implements UsuariosService{
 	@Override
 	public boolean validarCredenciales(String email, String password) {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
-		//if(usrepository.findAll() == ) {
-			
-		//}
-=======
-		
->>>>>>> b6ccaa28878accf9dfa272d3af3da40473914b5b
-		return false;
+		Usuario usuario = usrepository.findByEmail(email);
+        
+        // Si no se encuentra al usuario, las credenciales no son válidas
+        if (usuario == null) {
+            return false;
+        }
+        
+        // Verificar si la contraseña coincide
+        return usuario.getPassword().equals(password);
+		//return false;
 	}
 
 	@Override
