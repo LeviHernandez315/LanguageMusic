@@ -1,5 +1,10 @@
 package unah.lenguajes.proyecto.repositories;
 
-public interface PlaylistRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import unah.lenguajes.proyecto.models.PlaylistCancion;
+
+
+public interface PlaylistRepository extends CrudRepository<PlaylistCancion, Integer>{
 
 }

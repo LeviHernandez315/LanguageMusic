@@ -1,5 +1,10 @@
 package unah.lenguajes.proyecto.repositories;
 
-public interface TipoMembRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import unah.lenguajes.proyecto.models.TipoMembresia;
+
+
+public interface TipoMembRepository extends CrudRepository<TipoMembresia, Integer>{
 
 }

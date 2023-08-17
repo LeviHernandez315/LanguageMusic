@@ -1,5 +1,10 @@
 package unah.lenguajes.proyecto.repositories;
 
-public interface RecibosRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import unah.lenguajes.proyecto.models.Recibo;
+
+
+public interface RecibosRepository extends CrudRepository<Recibo, Integer>{
 
 }

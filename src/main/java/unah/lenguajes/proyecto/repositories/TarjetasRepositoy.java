@@ -1,5 +1,11 @@
 package unah.lenguajes.proyecto.repositories;
 
-public interface TarjetasRepositoy {
+import org.springframework.data.repository.CrudRepository;
+
+import unah.lenguajes.proyecto.models.Tarjeta;
+
+
+
+public interface TarjetasRepositoy extends CrudRepository<Tarjeta, Integer>{
 
 }

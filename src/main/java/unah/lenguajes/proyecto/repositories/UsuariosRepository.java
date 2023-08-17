@@ -1,5 +1,10 @@
 package unah.lenguajes.proyecto.repositories;
 
-public interface UsuariosRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import unah.lenguajes.proyecto.models.Usuario;
+
+
+public interface UsuariosRepository extends CrudRepository<Usuario, Integer>{
 
 }
