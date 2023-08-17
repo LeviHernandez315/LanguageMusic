@@ -1,5 +1,10 @@
 package unah.lenguajes.proyecto.services;
 
-public interface TarjetasService {
+import unah.lenguajes.proyecto.models.Tarjeta;
 
+public interface TarjetasService {
+	
+	public boolean guardarTarjeta(Tarjeta tarjeta);
+	
+	public Tarjeta mostrarTarjetaid(int id);
 }
