@@ -91,3 +91,12 @@ CREATE TABLE PlayListCancion (
     FOREIGN KEY (idPlaylist) REFERENCES Playlist(idPlaylist),
     FOREIGN KEY (idCancion) REFERENCES Canciones(idCancion)
 );
+
+CREATE TABLE HistorialCancion (
+    idHistorial INT AUTO_INCREMENT PRIMARY KEY,
+    idUsuario INT,
+    idCancion INT,
+    FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario),
+    FOREIGN KEY (idCancion) REFERENCES Canciones(idCancion)
+);
+
