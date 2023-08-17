@@ -6,6 +6,8 @@ public interface UsuariosService {
 	
 	public boolean guardarUsuario(Usuario usuario);
 	
+	public boolean validarCredenciales(String email, String password);
+	
 	public boolean actualizarUsuario(Usuario usuario);
 	
 	public boolean eliminarUsuario(Usuario usuario);
