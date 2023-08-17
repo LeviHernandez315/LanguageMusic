@@ -1,5 +1,6 @@
 package unah.lenguajes.proyecto.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import unah.lenguajes.proyecto.models.TipoMembresia;
@@ -8,7 +9,7 @@ public interface TipoMembService {
 	
 	public boolean actualizarTipoMembresia(TipoMembresia tpmembresia);
 	
-	public Optional<TipoMembresia> obtenertipoMembresia(int id);
+	public TipoMembresia obtenertipoMembresia(int id);
 	
-	public TipoMembresia obtenerTodasMembresias();
+	public List<TipoMembresia> obtenerTodasMembresias();
 }

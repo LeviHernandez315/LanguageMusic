@@ -1,12 +1,19 @@
 package unah.lenguajes.proyecto.services.impl;
 
+import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import unah.lenguajes.proyecto.models.TipoMembresia;
+import unah.lenguajes.proyecto.repositories.TipoMembRepository;
 import unah.lenguajes.proyecto.services.TipoMembService;
 
 public class TipoMembServiceImpl implements TipoMembService{
 
+	@Autowired
+	private TipoMembRepository repoTM;
+	
 	@Override
 	public boolean actualizarTipoMembresia(TipoMembresia tpmembresia) {
 		// TODO Auto-generated method stub
@@ -14,15 +21,19 @@ public class TipoMembServiceImpl implements TipoMembService{
 	}
 
 	@Override
-	public Optional<TipoMembresia> obtenertipoMembresia(int id) {
+	public TipoMembresia obtenertipoMembresia(int id) {
 		// TODO Auto-generated method stub
-		return Optional.empty();
+		if(repoTM.existsById(id)) {
+			return repoTM.findById(id).get();
+		}
+		
+		return null;
 	}
 
 	@Override
-	public TipoMembresia obtenerTodasMembresias() {
+	public List<TipoMembresia> obtenerTodasMembresias() {
 		// TODO Auto-generated method stub
-		return null;
+		return (List<TipoMembresia>) repoTM.findAll();
 	}
 
 }
